@@ -39,11 +39,47 @@
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
+        .events-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .events-table th,
+        .events-table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #e0e0e0;
+        }
+        .events-table th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+        .events-table td {
+            vertical-align: middle;
+        }
+        .events-table tr:hover {
+            background-color: #f8f8f8;
+        }
+        .date-column {
+            width: 120px;
+            white-space: nowrap;
+        }
+        .type-column {
+            width: 80px;
+            text-align: center;
+        }
+        .note {
+            color: #666;
+            font-style: italic;
+            display: block;
+            margin-top: 4px;
+        }
     </style>
 </head>
 <body>
     <header>
-        <!-- Logo -->
         <img src="logo.png" alt="Logo" class="logo">
     </header>
 
@@ -54,117 +90,112 @@
     
     <div class="image-container">
         <h2>Aktuelle Ausschreibungen</h2>
-
-        <style type="text/css">
-            .tg  {border-collapse:collapse;border-spacing:0;}
-            .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-            .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-            </style>
-            <table class="tg" style="table-layout: fixed; width: 678px">
-            <colgroup>
-            <col style="width: 146px">
-            <col style="width: 71px">
-            <col style="width: 461px">
-            </colgroup>
-              <tr>
-                <th class="tg-031e"><br><br>15.02.2025<br></th>
-                <th class="tg-031e"><br><br>(Scheibe)<br></th>
-                <th class="tg-031e"><br><br>1.Blasrohrturnier ASV 05,&nbsp; 67069 Edigheim<br></th>
-              </tr>
-              <tr>
-                <td class="tg-031e"><br><br>15.02. bis 16.02.2025<br></td>
-                <td class="tg-031e"><br><br>(Scheibe)<br></td>
-                <td class="tg-031e"><br><br>Offene Bayerische Meisterschaft Blasrohr,&nbsp; 85748 Garching Hochbrück<br></td>
-              </tr>
-              <tr>
-                <td class="tg-031e"><br><br>23.03.2025<br></td>
-                <td class="tg-031e"><br><br>(Scheibe)<br></td>
-                <td class="tg-031e"><br><br>Weinhofer Winter Blasrohrturnier,&nbsp; 90518 Altdorf/Weinhof<br></td>
-              </tr>
-              <tr>
-                <td class="tg-031e"><br><br>03.05.2025<br></td>
-                <td class="tg-031e"><br><br>(Scheibe)<br></td>
-                <td class="tg-031e"><br><br>3.Spirit of Dapfe Blasrohrturnier,&nbsp; 86660 Tapfheim<br></td>
-              </tr>
-              <tr>
-                <td class="tg-031e"><br><br>03.05.2025<br></td>
-                <td class="tg-031e"><br><br>(Scheibe<br></td>
-                <td class="tg-031e"><br><br>1.Blasrohr Scheiben Turnier, 88634 Herdwangen<br></td>
-              </tr>
-              <tr>
-                <td class="tg-031e"><br><br>04.05.2025<br></td>
-                <td class="tg-031e"><br><br>(Scheibe)<br></td>
-                <td class="tg-031e"><br><br>2.Blasrohr Mannschaftswettbewerb, 88634 Herdwangen<br></td>
-              </tr>
-              <tr>
-                <td class="tg-031e"><br><br>24.05.2025<br></td>
-                <td class="tg-031e"><br><br>(3D)<br></td>
-                <td class="tg-031e"><br><br>1. Offene Württembergische 3D Meisterschaft Blasrohr,&nbsp; 73072 Donzdorf<br></td>
-              </tr>
-              <tr>
-                <td class="tg-031e"><br><br>29.05.2025<br></td>
-                <td class="tg-031e"><br><br>(3D)<br></td>
-                <td class="tg-031e"><br><br>Verbandsoffene DM&nbsp;im 3-D Blasrohrsport,&nbsp; 55767 Hattgenstein<br></td>
-              </tr>
-              <tr>
-                <td class="tg-031e"><br><br>09.06.2025<br></td>
-                <td class="tg-031e"><br><br>(Scheibe)<br></td>
-                <td class="tg-031e"><br><br>3.Jura Blasrohr Cup,&nbsp; 92331 Parsberg<br></td>
-              </tr>
-              <tr>
-                <td class="tg-031e"><br><br>22.06.2025<br></td>
-                <td class="tg-031e"><br><br>(3D)<br></td>
-                <td class="tg-031e"><br><br>3.Bogen und Blasrohrturnier Hubertus Stangenroth,&nbsp; 97705 Stangenroth<br></td>
-              </tr>
-              <tr>
-                <td class="tg-031e"><br><br>28.06.2025<br></td>
-                <td class="tg-031e"><br><br>(3D)<br></td>
-                <td class="tg-031e"><br><br>3.Berliner Blasrohr Open, Outdoor,&nbsp;13597 Berlin/Spandau<br></td>
-              </tr>
-              <tr>
-                <td class="tg-031e"><br><br>29.06.2025<br></td>
-                <td class="tg-031e"><br><br>(Scheibe)<br></td>
-                <td class="tg-031e"><br><br>3.Berliner Blasrohr Open, Outdoor, 13597 Berlin/Spandau<br></td>
-              </tr>
-              <tr>
-                <td class="tg-031e"><br><br>05.07.2025<br></td>
-                <td class="tg-031e"><br><br>(Scheibe)<br></td>
-                <td class="tg-031e"><br><br>4. Auracher Blasrohr Open, 91589 Aurach&nbsp; (NEU)<br></td>
-              </tr>
-              <tr>
-                <td class="tg-031e"><br><br>20.07.2025<br></td>
-                <td class="tg-031e"><br><br>(Scheibe)<br></td>
-                <td class="tg-031e"><br><br>1.Zeidler Blasrohrturnier,&nbsp; 90537 Feucht<br></td>
-              </tr>
-              <tr>
-                <td class="tg-031e"><br><br>26.07.2025<br></td>
-                <td class="tg-031e"><br><br>(Scheibe)<br></td>
-                <td class="tg-031e"><br><br>Blasrohr Turnier Wendelstein, 90530 Wendelstein&nbsp; <br>(Ausschreibung folgt)<br></td>
-              </tr>
-              <tr>
-                <td class="tg-031e"><br><br>02.08.2025<br></td>
-                <td class="tg-031e"><br><br>(Scheibe)<br></td>
-                <td class="tg-031e"><br><br>Blasrohrturnier InterCup 2025,&nbsp; 92533 Wernberg-Köblitz&nbsp; <br>(NEU)<br></td>
-              </tr>
-              <tr>
-                <td class="tg-031e"><br><br>28.09.2025<br></td>
-                <td class="tg-031e"><br><br>(Scheibe)<br></td>
-                <td class="tg-031e"><br><br>3.Offene Blasrohrturnier,&nbsp; 65326 Aarbergen-Kettenbach<br></td>
-              </tr>
-              <tr>
-                <td class="tg-031e"><br><br>03.10.2025<br></td>
-                <td class="tg-031e"><br><br>(Scheibe)<br></td>
-                <td class="tg-031e"><br><br>Pustefix-Cup Blasrohrturnier Loderbach,&nbsp; 92348 Berg<br></td>
-              </tr>
-              <tr>
-                <td class="tg-031e"><br><br>31.10. bis 02.11.2025<br></td>
-                <td class="tg-031e"><br><br>(Scheibe)<br></td>
-                <td class="tg-031e"><br><br>Deutsche&nbsp;Meisterschaft DSB Blasrohr,&nbsp; 37574 </td>
-              </tr>
-            </table>
-
-
-
+        <table class="events-table">
+            <thead>
+                <tr>
+                    <th>Datum</th>
+                    <th>Art</th>
+                    <th>Veranstaltung</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="date-column">15.02.2025</td>
+                    <td class="type-column">Scheibe</td>
+                    <td>1. Blasrohrturnier ASV 05, 67069 Edigheim</td>
+                </tr>
+                <tr>
+                    <td class="date-column">15.02. - 16.02.2025</td>
+                    <td class="type-column">Scheibe</td>
+                    <td>Offene Bayerische Meisterschaft Blasrohr, 85748 Garching Hochbrück</td>
+                </tr>
+                <tr>
+                    <td class="date-column">23.03.2025</td>
+                    <td class="type-column">Scheibe</td>
+                    <td>Weinhofer Winter Blasrohrturnier, 90518 Altdorf/Weinhof</td>
+                </tr>
+                <tr>
+                    <td class="date-column">03.05.2025</td>
+                    <td class="type-column">Scheibe</td>
+                    <td>3. Spirit of Dapfe Blasrohrturnier, 86660 Tapfheim</td>
+                </tr>
+                <tr>
+                    <td class="date-column">03.05.2025</td>
+                    <td class="type-column">Scheibe</td>
+                    <td>1. Blasrohr Scheiben Turnier, 88634 Herdwangen</td>
+                </tr>
+                <tr>
+                    <td class="date-column">04.05.2025</td>
+                    <td class="type-column">Scheibe</td>
+                    <td>2. Blasrohr Mannschaftswettbewerb, 88634 Herdwangen</td>
+                </tr>
+                <tr>
+                    <td class="date-column">24.05.2025</td>
+                    <td class="type-column">3D</td>
+                    <td>1. Offene Württembergische 3D Meisterschaft Blasrohr, 73072 Donzdorf</td>
+                </tr>
+                <tr>
+                    <td class="date-column">29.05.2025</td>
+                    <td class="type-column">3D</td>
+                    <td>Verbandsoffene DM im 3-D Blasrohrsport, 55767 Hattgenstein</td>
+                </tr>
+                <tr>
+                    <td class="date-column">09.06.2025</td>
+                    <td class="type-column">Scheibe</td>
+                    <td>3. Jura Blasrohr Cup, 92331 Parsberg</td>
+                </tr>
+                <tr>
+                    <td class="date-column">22.06.2025</td>
+                    <td class="type-column">3D</td>
+                    <td>3. Bogen und Blasrohrturnier Hubertus Stangenroth, 97705 Stangenroth</td>
+                </tr>
+                <tr>
+                    <td class="date-column">28.06.2025</td>
+                    <td class="type-column">3D</td>
+                    <td>3. Berliner Blasrohr Open, Outdoor, 13597 Berlin/Spandau</td>
+                </tr>
+                <tr>
+                    <td class="date-column">29.06.2025</td>
+                    <td class="type-column">Scheibe</td>
+                    <td>3. Berliner Blasrohr Open, Outdoor, 13597 Berlin/Spandau</td>
+                </tr>
+                <tr>
+                    <td class="date-column">05.07.2025</td>
+                    <td class="type-column">Scheibe</td>
+                    <td>4. Auracher Blasrohr Open, 91589 Aurach<span class="note">NEU</span></td>
+                </tr>
+                <tr>
+                    <td class="date-column">20.07.2025</td>
+                    <td class="type-column">Scheibe</td>
+                    <td>1. Zeidler Blasrohrturnier, 90537 Feucht</td>
+                </tr>
+                <tr>
+                    <td class="date-column">26.07.2025</td>
+                    <td class="type-column">Scheibe</td>
+                    <td>Blasrohr Turnier Wendelstein, 90530 Wendelstein<span class="note">Ausschreibung folgt</span></td>
+                </tr>
+                <tr>
+                    <td class="date-column">02.08.2025</td>
+                    <td class="type-column">Scheibe</td>
+                    <td>Blasrohrturnier InterCup 2025, 92533 Wernberg-Köblitz<span class="note">NEU</span></td>
+                </tr>
+                <tr>
+                    <td class="date-column">28.09.2025</td>
+                    <td class="type-column">Scheibe</td>
+                    <td>3. Offene Blasrohrturnier, 65326 Aarbergen-Kettenbach</td>
+                </tr>
+                <tr>
+                    <td class="date-column">03.10.2025</td>
+                    <td class="type-column">Scheibe</td>
+                    <td>Pustefix-Cup Blasrohrturnier Loderbach, 92348 Berg</td>
+                </tr>
+                <tr>
+                    <td class="date-column">31.10. - 02.11.2025</td>
+                    <td class="type-column">Scheibe</td>
+                    <td>Deutsche Meisterschaft DSB Blasrohr, 37574</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
