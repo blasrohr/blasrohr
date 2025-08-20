@@ -18,11 +18,24 @@
             padding: 20px;
             border-bottom: 2px solid #bebebe;
         }
-        .logo {
-            max-width: 100%;
-            height: auto;
+        .logo-container {
+            display: flex;
+            align-items: center; /* Vertikale Ausrichtung */
+            gap: 20px; /* Abstand zwischen den Logos */
             margin-bottom: 20px;
-        }
+            }
+
+        .logo {
+            max-width: 80%;
+            height: auto;
+            }
+
+        .logo2 {
+            /* soll genau von der Höhe an Logo anschließen */
+            max-width: 20%;
+            height: auto;
+            /* Höhe wird automatisch an .logo angepasst */
+            }
         .image-container {
             margin: 40px 0;
         }
@@ -89,10 +102,13 @@
     </style>
 </head>
 <body>
+    <header class="logo-container">
+        <img src="logo_v3.jpg" alt="Logo 1" class="logo">
+        <img src="logo_blasrohr.svg" alt="Logo 2" class="logo2">
+      </header>
     <header>
-        <img src="logo_v3.jpg" alt="Logo" class="logo">
-        <div class="construction-notice">
-            Diese Webseite befindet sich aktuell im Aufbau. Vielen Dank für deine Geduld!
+      <div class="construction-notice">
+        Diese Webseite befindet sich aktuell im Aufbau. Vielen Dank für deine Geduld!
         </div>
     </header>
 
