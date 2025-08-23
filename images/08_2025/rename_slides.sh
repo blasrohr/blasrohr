@@ -1,70 +1,58 @@
 #!/bin/bash
 
-# Script um Folien mit Leerzeichen im Namen nach Zeitstempel zu sortieren und umzubenennen
-# Usage: ./rename_slides.sh [ordner]
+# Super einfache Version - sortiert Folien nach Zeitstempel im Dateinamen
+# Format: Folie_2025-08-22  16-39-57.png
+# ÄLTESTE wird zu 1.png
 
-# Ordner festlegen (Standard: aktueller Ordner)
-if [ "$1" ]; then
-    TARGET_DIR="$1"
-else
-    TARGET_DIR="."
-fi
+echo "=== Gefundene Folie-Dateien ==="
+ls -1 Folie_*.png 2>/dev/null || { echo "Keine Folie_*.png Dateien gefunden!"; exit 1; }
 
-# Prüfen ob Ordner existiert
-if [ ! -d "$TARGET_DIR" ]; then
-    echo "Fehler: Ordner '$TARGET_DIR' existiert nicht!"
-    exit 1
-fi
+# Erstelle temporäre Datei mit Zeitstempel-Extraktion
+temp_file="/tmp/folie_sort_$$"
 
-echo "Arbeite in Ordner: $TARGET_DIR"
-
-# Wechseln in den Zielordner
-cd "$TARGET_DIR" || exit 1
-
-# Debug: Zeige alle PNG-Dateien
-echo "=== Gefundene PNG-Dateien ==="
-ls -la *.png 2>/dev/null || echo "Keine PNG-Dateien gefunden!"
-
-# Prüfen ob Folie_*.png Dateien existieren
-shopt -s nullglob  # Leere Expansion wenn keine Matches
-files=(Folie_*.png)
-if [ ${#files[@]} -eq 0 ]; then
-    echo "Keine Dateien mit dem Pattern 'Folie_*.png' gefunden!"
-    exit 1
-fi
-
-echo -e "\n=== Gefundene Folie-Dateien ==="
-printf '%s\n' "${files[@]}"
-
-# Temporären Ordner für Zwischenschritte erstellen
-mkdir -p .temp_rename
-
-# Array für sortierte Dateien erstellen (nach Änderungsdatum, neueste zuerst)
-echo -e "\n=== Sortiere nach Datum ==="
-IFS=$'\n' sorted_files=($(ls -t "Folie_"*.png 2>/dev/null))
-
-# Counter für neue Dateinamen
-counter=1
-
-# Dateien umbenennen
-echo -e "\n=== Umbenennung ==="
-for file in "${sorted_files[@]}"; do
+echo -e "\n=== Erstelle Sortier-Liste ==="
+for file in Folie_*.png; do
     if [ -f "$file" ]; then
-        echo "Benenne '$file' um in '$counter.png'"
+        # Extrahiere Zeitstempel: Folie_2025-08-22  16-39-57.png
+        # Entferne "Folie_" und ".png"
+        timestamp="${file#Folie_}"
+        timestamp="${timestamp%.png}"
         
-        # Erst in temporären Ordner verschieben, um Konflikte zu vermeiden
-        mv "$file" ".temp_rename/$counter.png"
+        # Ersetze Leerzeichen und Bindestriche für bessere Sortierung
+        # 2025-08-22  16-39-57 wird zu 20250822163957
+        sortable=$(echo "$timestamp" | sed 's/[- ]//g')
         
-        ((counter++))
+        echo "Datei: $file -> Sortkey: $sortable"
+        echo "$sortable|$file" >> "$temp_file"
     fi
 done
 
-# Alle Dateien aus dem temporären Ordner zurück ins Hauptverzeichnis
-if [ -d ".temp_rename" ]; then
-    mv .temp_rename/*.png . 2>/dev/null
-    rmdir .temp_rename 2>/dev/null
-fi
+# Sortiere nach Zeitstempel (älteste zuerst - OHNE -r)
+echo -e "\n=== Sortiere (älteste zuerst) ==="
+sort -t'|' -k1,1 -n "$temp_file" > "${temp_file}_sorted"
 
-echo -e "\nFertig! $((counter-1)) Dateien umbenannt."
+# Temporären Ordner erstellen
+mkdir -p .temp_rename
+
+# Dateien umbenennen
+counter=1
+echo -e "\n=== Umbenennung ==="
+while IFS='|' read -r sortkey filename; do
+    if [ -f "$filename" ]; then
+        echo "[$counter] $filename (Zeitstempel: $sortkey) -> $counter.png"
+        mv "$filename" ".temp_rename/$counter.png"
+        ((counter++))
+    fi
+done < "${temp_file}_sorted"
+
+# Dateien zurück ins Hauptverzeichnis
+mv .temp_rename/*.png . 2>/dev/null
+rmdir .temp_rename 2>/dev/null
+
+# Aufräumen
+rm -f "$temp_file" "${temp_file}_sorted"
+
+echo -e "\nFertig! $((counter-1)) Dateien sortiert nach Dateinamen-Zeitstempel."
+echo -e "Älteste Folie (18-11-22) ist jetzt 1.png"
 echo -e "\n=== Ergebnis ==="
-ls -la [0-9]*.png 2>/dev/null | head -10
+ls -la [0-9]*.png 2>/dev/null
